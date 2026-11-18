@@ -36,17 +36,20 @@ public class House extends Asset {
     public BigDecimal getValue() {
         BigDecimal lotSizeAddition = BigDecimal.ZERO;
         BigDecimal squareFootMultiplier = BigDecimal.ZERO;
-        switch (this.getCondition()) {
+        switch (this.condition) {
             case 1 -> squareFootMultiplier = BigDecimal.valueOf(180.00);
             case 2 -> squareFootMultiplier = BigDecimal.valueOf(130.00);
             case 3 -> squareFootMultiplier = BigDecimal.valueOf(90.00);
             case 4 -> squareFootMultiplier = BigDecimal.valueOf(80.00);
             default -> {
-                System.out.println("WRONG ESTATE CONDITION");
-                System.exit(1);
+                throw new RuntimeException("WRONG ESTATE!");
             }
         }
-        lotSizeAddition =BigDecimal.valueOf(0.25).multiply(BigDecimal.valueOf(this.lotSize));
-        return (squareFootMultiplier.multiply(BigDecimal.valueOf(this.squareFoot))).add(lotSizeAddition);
+        BigDecimal quarter = new BigDecimal("0.25");
+        BigDecimal lotSize = new BigDecimal(this.lotSize);
+        BigDecimal squareFoot = new BigDecimal(this.squareFoot);
+
+        lotSizeAddition = quarter.multiply(lotSize);
+        return (squareFootMultiplier.multiply(squareFoot)).add(lotSizeAddition);
     }
 }
