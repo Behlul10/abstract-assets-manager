@@ -5,7 +5,7 @@ public class Main {
         Asset miCasa = new House("Penthouse", "1999", BigDecimal.valueOf(23), "Ozone Parkway", 4, 10_000, 4);
         Asset araba = new Vehicle("Bat-Mobile", "2008", BigDecimal.valueOf(2_000_000), "custom-artisonal-hand-craft", 2000, 300_000);
 
-        Asset myasset = new Asset();
+//        Asset myasset = new Asset();
         //You cant instantiate Asset | 'Asset' is abstract; cannot be instantiated |
 
         System.out.println("House: " + miCasa.getDescription() + "\n  Address: " + miCasa.getDateAcquired());
